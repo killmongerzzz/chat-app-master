@@ -58,6 +58,7 @@ const io = require("socket.io")(server, {
       process.env.NODE_ENV === "production"
         ? "https://chat-free-35k1.onrender.com"
         : "http://localhost:3000",
+    methods: ["GET", "POST"],
     // credentials: true,
   },
 });
