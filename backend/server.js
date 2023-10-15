@@ -56,7 +56,7 @@ const io = require("socket.io")(server, {
   cors: {
     origin:
       process.env.NODE_ENV === "production"
-        ? "http://192.168.0.108:3000"
+        ? "https://chat-free-35k1.onrender.com"
         : "http://localhost:3000",
     // credentials: true,
   },
