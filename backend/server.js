@@ -13,7 +13,16 @@ connectDB();
 const app = express();
 
 app.use(express.json()); // to accept json data
-
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV === "production"
+        ? "https://chat-free-35k1.onrender.com"
+        : "http://localhost:3000",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 // app.get("/", (req, res) => {
 //   res.send("API Running!");
 // });
@@ -59,7 +68,7 @@ const io = require("socket.io")(server, {
         ? "https://chat-free-35k1.onrender.com"
         : "http://localhost:3000",
     methods: ["GET", "POST"],
-    // credentials: true,
+    credentials: true,
   },
 });
 
